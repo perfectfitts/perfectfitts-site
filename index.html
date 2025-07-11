@@ -1,63 +1,45 @@
-
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>PerfectFitts – 3D</title>
-    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        background: #f4f4f4;
-        margin: 0;
-      }
-      header {
-        background: #a24aff;
-        color: white;
-        padding: 2rem;
-        text-align: center;
-      }
-      section {
-        text-align: center;
-        padding: 2rem;
-      }
-      model-viewer {
-        width: 100%;
-        height: 500px;
-        background: #fff;
-      }
-      .slider {
-        max-width: 300px;
-        margin: 2rem auto;
-      }
-    </style>
-  </head>
-  <body>
-    <header>
-      <h1>PerfectFitts</h1>
-      <p>Customize Your Perfect Fit</p>
-    </header>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PerfectFitts – 3D</title>
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+  <style>
+    body { font-family: Arial, sans-serif; background: #f4f4f4; margin: 0; }
+    header { background: #a24aff; color: white; padding: 2rem; text-align: center; }
+    section { text-align: center; padding: 2rem; }
+    model-viewer { width: 100%; height: 500px; background: #fff; }
+    .slider { max-width: 300px; margin: 2rem auto; }
+  </style>
+</head>
+<body>
 
-    <section>
-      <model-viewer id="pantsModel" src="pants_waist_32.glb" alt="3D Pants" auto-rotate camera-controls></model-viewer>
+  <header>
+    <h1>PerfectFitts</h1>
+    <p>Customize Your Perfect Fit</p>
+  </header>
 
-      <div class="slider">
-        <label for="waistSize">Waist Size: <span id="sizeValue">32</span></label>
-        <input type="range" min="28" max="36" step="4" value="32" id="waistSize" />
-      </div>
-    </section>
+  <section>
+    <model-viewer id="pantsModel" src="pants_waist_32.glb" alt="3D Pants" auto-rotate camera-controls></model-viewer>
 
-    <script>
-      const waistSize = document.getElementById('waistSize');
-      const pantsModel = document.getElementById('pantsModel');
-      const sizeValue = document.getElementById('sizeValue');
+    <div class="slider">
+      <label for="waistSize">Waist Size: <span id="sizeValue">32</span></label>
+      <input type="range" min="28" max="36" step="4" value="32" id="waistSize" />
+    </div>
+  </section>
 
-      waistSize.addEventListener('input', () => {
-        const size = waistSize.value;
-        sizeValue.textContent = size;
-        pantsModel.src = `pants_waist_${size}.glb`;
-      });
-    </script>
-  </body>
+  <script>
+    const waistSize = document.getElementById('waistSize');
+    const pantsModel = document.getElementById('pantsModel');
+    const sizeValue = document.getElementById('sizeValue');
+
+    waistSize.addEventListener('input', () => {
+      const size = waistSize.value;
+      sizeValue.textContent = size;
+      pantsModel.src = `pants_waist_${size}.glb`;
+    });
+  </script>
+
+</body>
 </html>
