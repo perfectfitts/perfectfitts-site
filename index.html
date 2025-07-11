@@ -1,0 +1,88 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PerfectFitts</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background: #f4f4f4;
+    }
+    header {
+      background-color: #a24aff;
+      color: white;
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+    .hero {
+      text-align: center;
+      padding: 2rem;
+      background: white;
+    }
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    .custom-section {
+      padding: 2rem;
+      background: #ffffff;
+      max-width: 600px;
+      margin: auto;
+      border-radius: 1rem;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    label {
+      display: block;
+      margin-top: 1rem;
+    }
+    input[type=range] {
+      width: 100%;
+    }
+    .footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>PerfectFitts</h1>
+    <p>Design your pants. Wear your vibe.</p>
+  </header>
+
+  <section class="hero">
+    <h1>Customize Your Perfect Fit</h1>
+    <p>Select your size and style below. More options coming soon!</p>
+  </section>
+
+  <section class="custom-section">
+    <label for="sizeSlider">Choose Waist Size: <span id="sizeValue">32</span></label>
+    <input type="range" min="28" max="42" value="32" id="sizeSlider">
+
+    <label for="graffitiText">Add Graffiti Text:</label>
+    <input type="text" id="graffitiText" placeholder="e.g. DRIP, VIBE, FLEX">
+
+    <p style="margin-top: 2rem;">🚧 More customization features coming soon!</p>
+  </section>
+
+  <footer class="footer">
+    &copy; 2025 PerfectFitts. All rights reserved.
+  </footer>
+
+  <script>
+    const sizeSlider = document.getElementById('sizeSlider');
+    const sizeValue = document.getElementById('sizeValue');
+
+    sizeSlider.addEventListener('input', () => {
+      sizeValue.textContent = sizeSlider.value;
+    });
+  </script>
+
+</body>
+</html>
