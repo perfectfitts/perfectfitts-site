@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PerfectFitts Customizer</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #f3f3f3;
+      text-align: center;
+      padding: 20px;
+    }
+    h1 {
+      color: #333;
+    }
+    .preview-container {
+      position: relative;
+      display: inline-block;
+    }
+    #pants-preview {
+      width: 300px;
+    }
+    #custom-text {
+      position: absolute;
+      top: 65%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 18px;
+      font-weight: bold;
+      color: black;
+      pointer-events: none;
+    }
+    .controls {
+      margin-top: 30px;
+    }
+    .controls label, .controls input, .controls select {
+      margin: 10px;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Customize Your PerfectFitts Pants</h1>
+
+  <div class="preview-container">
+    <img id="pants-preview" src="https://i.imgur.com/fZ8lB0k.png" alt="Pants front">
+    <div id="custom-text"></div>
+  </div>
+
+  <div class="controls">
+    <label>Choose Color:
+      <select id="color">
+        <option value="black">Black</option>
+        <option value="blue">Blue</option>
+        <option value="olive">Olive</option>
+        <option value="khaki">Khaki</option>
+      </select>
+    </label>
+
+    <label>Choose Size (Waist): 
+      <input type="range" id="size" min="28" max="40" value="32" />
+      <span id="size-value">32</span>
+    </label>
+
+    <label>Choose Material:
+      <select id="material">
+        <option value="cotton">Cotton</option>
+        <option value="denim">Denim</option>
+        <option value="nylon">Nylon</option>
+      </select>
+    </label>
+
+    <label>Add Your Text:
+      <input type="text" id="text" placeholder="Your graffiti or name..." />
+    </label>
+
+    <button onclick="updatePreview()">Update Preview</button>
+  </div>
+
+  <script>
+    const sizeInput = document.getElementById("size");
+    const sizeValue = document.getElementById("size-value");
+    const customText = document.getElementById("custom-text");
+
+    sizeInput.addEventListener("input", () => {
+      sizeValue.textContent = sizeInput.value;
+    });
+
+    function updatePreview() {
+      const color = document.getElementById("color").value;
+      const text = document.getElementById("text").value;
+      const material = document.getElementById("material").value;
+
+      // Simulate color by changing image (could be improved later)
+      const preview = document.getElementById("pants-preview");
+      preview.style.filter = color === "black" ? "grayscale(100%)" :
+                             color === "blue" ? "hue-rotate(180deg)" :
+                             color === "olive" ? "hue-rotate(90deg)" :
+                             "sepia(60%)";
+
+      customText.textContent = text ? text + " (" + material + ")" : "";
+    }
+  </script>
+
+</body>
+</html>
